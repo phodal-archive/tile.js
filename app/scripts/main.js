@@ -1,6 +1,7 @@
 /* jshint bitwise:false */
 
 var content = document.getElementsByTagName('canvas')[0].getContext('2d');
+var lettuce = new Lettuce();
 var scene = {
   layers: [],
   renderLayer: function (layer) {
@@ -65,11 +66,10 @@ var scene = {
   },
   load: function (name) {
     'use strict';
-    return $.ajax({
-      url: './images/' + name + '.json',
-      dataType: 'JSON',
-      type: 'get'
-    }).done($.proxy(this.loadTileset, this));
+    var that = this;
+    Lettuce.get('./images/' + name + '.json', function(data){
+      that.loadTileset(JSON.parse(data));
+    });
   }
 };
 
