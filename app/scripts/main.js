@@ -1,7 +1,6 @@
 /* jshint bitwise:false */
 
-var c = $('canvas')[0].getContext('2d');
-
+var content = document.getElementsByTagName('canvas')[0].getContext('2d');
 var scene = {
   layers: [],
   renderLayer: function (layer) {
@@ -18,7 +17,7 @@ var scene = {
     if (layer.type !== 'tilelayer' || !layer.opacity) {
       return;
     }
-    var s = c.canvas.cloneNode(),
+    var s = content.canvas.cloneNode(),
       size = scene.data.tilewidth;
     s = s.getContext('2d');
     if (scene.layers.length < scene.data.layers.length) {
@@ -37,13 +36,13 @@ var scene = {
           sizeX, sizeY, size, size);
       });
       scene.layers.push(s.canvas.toDataURL());
-      c.drawImage(s.canvas, 0, 0);
+      content.drawImage(s.canvas, 0, 0);
     }
     else {
       scene.layers.forEach(function (src) {
         var i = document.createElement('img');
         i.src = src;
-        c.drawImage(i, 0, 0);
+        content.drawImage(i, 0, 0);
       });
     }
   },
