@@ -1,9 +1,12 @@
-/* jshint bitwise:false */
+/* tile.js main */
 
-var c = document.getElementsByTagName('canvas')[0].getContext('2d');
+// Base function.
+var tile = function() {
+  // Add functionality here.
+  return true;
+};
 
 var get = function (url, callback) {
-  'use strict';
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
@@ -15,7 +18,6 @@ var get = function (url, callback) {
 };
 
 function Scene(content) {
-  'use strict';
   this.layers = [];
   var that = this;
 
@@ -81,5 +83,11 @@ function Scene(content) {
   };
 }
 
-var s = new Scene(c);
-s.load('mountain');
+tile.Scene = Scene;
+
+// Version.
+tile.VERSION = '0.0.0';
+
+
+// Export to the root, which is probably `window`.
+root.tile = tile;

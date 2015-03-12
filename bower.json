@@ -1,6 +1,12 @@
 {
-  "name": "lettuce-tiled",
-  "private": true,
-  "dependencies": {
-  }
+  "name": "tile.js",
+  "version": "0.0.0",
+  "main": "dist/tile.min.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "dependencies": {}
 }
