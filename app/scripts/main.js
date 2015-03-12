@@ -42,7 +42,11 @@ $(function() {
       }
     },
     renderLayers: function(layers) {
-      layers = $.isArray(layers) ? layers : this.data.layers;
+      function isObject(obj) {
+        return typeof obj === 'array';
+      }
+
+      layers = isObject(layers) ? layers : this.data.layers;
       layers.forEach(this.renderLayer);
     },
     loadTileset: function(json) {
