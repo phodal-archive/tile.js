@@ -2,6 +2,5 @@
   "name": "lettuce-tiled",
   "private": true,
   "dependencies": {
-    "lettuce": "~0.2.3"
   }
 }

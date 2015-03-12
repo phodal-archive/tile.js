@@ -1,20 +1,11 @@
 /* jshint bitwise:false */
-/* global Lettuce */
 
 var content = document.getElementsByTagName('canvas')[0].getContext('2d');
+
 var scene = {
   layers: [],
   renderLayer: function (layer) {
     'use strict';
-    // data: [array of tiles, 1-based, position of sprite from top-left]
-    // height: integer, height in number of sprites
-    // name: "string", internal name of layer
-    // opacity: integer
-    // type: "string", layer type (tile, object)
-    // visible: boolean
-    // width: integer, width in number of sprites
-    // x: integer, starting x position
-    // y: integer, starting y position
     if (layer.type !== 'tilelayer' || !layer.opacity) {
       return;
     }
@@ -67,10 +58,20 @@ var scene = {
       that.renderLayers(that.tileset);
     };
   },
+  get: function(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4) {
+        callback(xhr.responseText);
+      }
+    };
+    xhr.open('GET', url, true);
+    xhr.send(null);
+  },
   load: function (name) {
     'use strict';
     var that = this;
-    Lettuce.get('./images/' + name + '.json', function(data){
+    that.get('./images/' + name + '.json', function(data){
       that.loadTileset(JSON.parse(data));
     });
   }
