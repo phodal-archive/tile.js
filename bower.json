@@ -2,6 +2,6 @@
   "name": "lettuce-tiled",
   "private": true,
   "dependencies": {
-    "jquery": "~1.11.1"
+    "lettuce": "~0.2.3"
   }
 }

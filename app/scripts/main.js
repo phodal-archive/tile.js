@@ -1,7 +1,7 @@
 /* jshint bitwise:false */
+/* global Lettuce */
 
 var content = document.getElementsByTagName('canvas')[0].getContext('2d');
-var lettuce = new Lettuce();
 var scene = {
   layers: [],
   renderLayer: function (layer) {
@@ -59,10 +59,13 @@ var scene = {
   },
   loadTileset: function (json) {
     'use strict';
+    var that = this;
     this.data = json;
     this.tileset = document.createElement('img');
     this.tileset.src = json.tilesets[0].image;
-    this.tileset.onload = $.proxy(this.renderLayers, this);
+    this.tileset.onload = function(){
+      that.renderLayers(that.tileset);
+    };
   },
   load: function (name) {
     'use strict';
