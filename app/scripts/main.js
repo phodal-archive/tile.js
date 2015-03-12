@@ -35,7 +35,8 @@ $(function() {
       }
       else {
         scene.layers.forEach(function(src) {
-          var i = $("<img />", { src: src })[0];
+          var i = document.createElement('img');
+          i.src = src;
           c.drawImage(i, 0, 0);
         });
       }
@@ -46,7 +47,8 @@ $(function() {
     },
     loadTileset: function(json) {
       this.data = json;
-      this.tileset = $("<img />", { src: json.tilesets[0].image })[0];
+      this.tileset = document.createElement('img');
+      this.tileset.src = json.tilesets[0].image;
       this.tileset.onload = $.proxy(this.renderLayers, this);
     },
     load: function(name) {
