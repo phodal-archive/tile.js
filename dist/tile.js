@@ -28,21 +28,22 @@ function Scene(content) {
 
   this.renderLayer = function (layer) {
     if (layer.type !== 'tilelayer' || !layer.opacity) {
+	    console.log("something");
       return;
     }
     var s = content.canvas.cloneNode(),
       size = that.data.tilewidth;
     s = s.getContext('2d');
     if (that.layers.length < that.data.layers.length) {
-      layer.data.forEach(function (titleIndex, i) {
-        if (!titleIndex) {
+      layer.data.forEach(function (tileIndex, i) {
+        if (!tileIndex) {
           return;
         }
         var imgX, imgY, sizeX, sizeY,
           tile = that.data.tilesets[0];
-        titleIndex--;
-        imgX = (titleIndex % (tile.imagewidth / size)) * size;
-        imgY = ~~(titleIndex / (tile.imagewidth / size)) * size;
+        tileIndex--;
+        imgX = (tileIndex % (tile.imagewidth / size)) * size;
+        imgY = ~~(tileIndex / (tile.imagewidth / size)) * size;
         sizeX = (i % layer.width) * size;
         sizeY = ~~(i / layer.width) * size;
         s.drawImage(that.tileset, imgX, imgY, size, size,
