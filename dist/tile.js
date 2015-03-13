@@ -28,7 +28,6 @@ function Scene(content) {
 
   this.renderLayer = function (layer) {
     if (layer.type !== 'tilelayer' || !layer.opacity) {
-	    console.log("something");
       return;
     }
     var s = content.canvas.cloneNode(),
@@ -46,8 +45,7 @@ function Scene(content) {
         imgY = ~~(tileIndex / (tile.imagewidth / size)) * size;
         sizeX = (i % layer.width) * size;
         sizeY = ~~(i / layer.width) * size;
-        s.drawImage(that.tileset, imgX, imgY, size, size,
-          sizeX, sizeY, size, size);
+        s.drawImage(that.tileset, imgX, imgY, size, size, sizeX, sizeY, size, size);
       });
       that.layers.push(s.canvas.toDataURL());
       content.drawImage(s.canvas, 0, 0);

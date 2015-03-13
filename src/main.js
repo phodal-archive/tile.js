@@ -23,7 +23,6 @@ function Scene(content) {
 
   this.renderLayer = function (layer) {
     if (layer.type !== 'tilelayer' || !layer.opacity) {
-	    console.log("something");
       return;
     }
     var s = content.canvas.cloneNode(),
