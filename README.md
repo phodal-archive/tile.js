@@ -1,6 +1,8 @@
 #Tile.js
 
-> A Pure JavaScript tiled map render.
+> A Pure JavaScript tiled map render. 仅~1.2kb
+
+``注意``: 仅支持正边形
 
 ##Screenshot
 
