@@ -1,0 +1,21 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>lettuce tiled</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+<canvas height="480" width="640"></canvas>
+<script src="../dist/tile.js"></script>
+<script>
+  var c = document.getElementsByTagName('canvas')[0].getContext('2d');
+
+  var s = new tile.Scene(c);
+  s.load('mountain');
+</script>
+</body>
+</html>
